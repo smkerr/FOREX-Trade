@@ -2,9 +2,13 @@
 This project examines the effects of the U.S. dollar/Japanese yen exchange rates on U.S.-Japantrade balances.
 
 # Load package
-library("vars")
+library(vars)
 
 # Read csv file into data frame
+library(RCurl)
+x <- geturl("https://raw.github.com/smkerr/FOREX-Trade/master/FOREX-Trade_Data.csv")
+Trade.data <- read.csv(text = x)
+
 US_Trade.data <- read.csv("/Users/Steve/Desktop/410/Thesis/US_CURRENCY_TRADE.csv")
 View(US_Trade.data)
 
@@ -17,7 +21,7 @@ BAL_JP
 plot(FOREX_JP, xlab = "Year", ylab = "USD/JPY Exchange Rate", bty = "l", main = "Time Series: USD/JPY Exchange Rate")
 plot(BAL_JP, xlab = "Year", ylab = "U.S.-Japan Trade Balance", bty = "l", main = "Time Series: U.S.-Japan Trade Balance")
 
-#Japan
+# Japan
 CurrencyWarJP <- cbind(FOREX_JP, BAL_JP)
 CurrencyWarJP
 FOREX_BAL_JP <- na.omit(CurrencyWarJP)
