@@ -6,7 +6,7 @@ library(vars)
 
 # Read csv file into data frame
 library(RCurl)
-x <- geturl("https://raw.github.com/smkerr/FOREX-Trade/master/FOREX-Trade_Data.csv")
+x <- getURL("https://raw.github.com/smkerr/FOREX-Trade/master/FOREX-Trade_Data.csv")
 Trade.data <- read.csv(text = x)
 
 US_Trade.data <- read.csv("/Users/Steve/Desktop/410/Thesis/US_CURRENCY_TRADE.csv")
